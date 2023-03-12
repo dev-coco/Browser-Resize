@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Resize",
+  "description": "根据配置自定义浏览器窗口大小和坐标。",
+  "author": "Raz1ner",
+  "version": "1.0.1",
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "system.display"
+  ],
+  "host_permissions": ["https://sheets.googleapis.com/*"]
+}
