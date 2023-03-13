@@ -21,14 +21,14 @@ async function init () {
   })
 }
 
-async function resize (data) {
+function resize (data) {
   const [getDisplay, xAxis, yAxis, width, height] = data.map(x => Number(x))
   chrome.system.display.getInfo(function (info) {
     const targetDisplay = info[getDisplay - 1]
     const left = targetDisplay.bounds.left + xAxis
     const top = targetDisplay.bounds.top + yAxis
     chrome.windows.getCurrent((window) => {
-      chrome.windows.update(window.id, { left, top, width, height })
+      chrome.windows.update(window.id, { left, top, width, height, state: 'normal' })
     })
   })
 }
